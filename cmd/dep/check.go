@@ -15,9 +15,9 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/golang/dep"
-	"github.com/golang/dep/gps"
-	"github.com/golang/dep/gps/verify"
+	"github.com/integration-system/dep"
+	"github.com/integration-system/dep/gps"
+	"github.com/integration-system/dep/gps/verify"
 	"github.com/pkg/errors"
 )
 

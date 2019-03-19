@@ -14,8 +14,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/golang/dep/gps"
-	"github.com/golang/dep/gps/pkgtree"
+	"github.com/integration-system/dep/gps"
+	"github.com/integration-system/dep/gps/pkgtree"
 )
 
 // This is probably the simplest possible implementation of gps. It does the

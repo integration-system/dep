@@ -2,7 +2,7 @@
 [[projects]]
   branch = "master"
   digest = "1:666f6f"
-  name = "github.com/golang/dep"
+  name = "github.com/integration-system/dep"
   packages = ["."]
   pruneopts = ""
   revision = "d05d5aca9f895d19e9265839bffeadd74a2d2ecb"

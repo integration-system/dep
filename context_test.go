@@ -15,7 +15,7 @@ import (
 	"testing"
 	"unicode"
 
-	"github.com/golang/dep/internal/test"
+	"github.com/integration-system/dep/internal/test"
 )
 
 func discardLogger() *log.Logger {

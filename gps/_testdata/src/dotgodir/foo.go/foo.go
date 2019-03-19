@@ -9,4 +9,4 @@ import "sort"
 var _ = sort.Strings
 
 // yes, this is dumb, don't use ".go" in your directory names
-// See https://github.com/golang/dep/issues/550 for more information
+// See https://github.com/integration-system/dep/issues/550 for more information

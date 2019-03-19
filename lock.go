@@ -9,8 +9,8 @@ import (
 	"io"
 	"sort"
 
-	"github.com/golang/dep/gps"
-	"github.com/golang/dep/gps/verify"
+	"github.com/integration-system/dep/gps"
+	"github.com/integration-system/dep/gps/verify"
 	"github.com/pelletier/go-toml"
 	"github.com/pkg/errors"
 )

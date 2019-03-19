@@ -2,7 +2,7 @@
 title: The Solver
 ---
 
-At the heart of dep is a constraint solving engine - a [CDCL](https://en.wikipedia.org/wiki/Conflict-Driven_Clause_Learning)-style solver (albeit light on the "CL" part), tailored specifically to the domain of Go package management. It lives in the `github.com/golang/dep/gps` package, and is where the work of determining a valid, transitively complete dependency graph (aka, the contents of `Gopkg.lock`) is performed.
+At the heart of dep is a constraint solving engine - a [CDCL](https://en.wikipedia.org/wiki/Conflict-Driven_Clause_Learning)-style solver (albeit light on the "CL" part), tailored specifically to the domain of Go package management. It lives in the `github.com/integration-system/dep/gps` package, and is where the work of determining a valid, transitively complete dependency graph (aka, the contents of `Gopkg.lock`) is performed.
 
 This page will eventually detail the solver's mechanics, but in the meantime, there are [docs for an older version of the solver](https://github.com/sdboyer/gps/wiki/gps-for-Contributors) that are still accurate enough to provide a rough picture of its behavior.
 
@@ -71,7 +71,7 @@ Go 1.4 introduced [import comments](https://golang.org/cmd/go/#hdr-Import_path_c
 
 Because most projects are consistent about their import comment use over time, this issue typically only occurs when adding a new dependency or attempting to revive an older project.
 
-> Note: dep does not currently enforce this rule, but [it needs to](https://github.com/golang/dep/issues/902).
+> Note: dep does not currently enforce this rule, but [it needs to](https://github.com/integration-system/dep/issues/902).
 
 **Remediation:** change the code by fixing the offending import paths. If the offending import paths are not in the current project and you don't directly control the dependency, you'll have to fork and fix it yourself, then use `source` to point to your fork.
 

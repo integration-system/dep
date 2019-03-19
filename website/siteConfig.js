@@ -7,7 +7,7 @@ const siteConfig = {
   tagline: 'Dependency management for Go',
   url: 'https://golang.github.io' /* your website url */,
   baseUrl: '/dep/' /* base url for your project */,
-  editUrl: 'https://github.com/golang/dep/edit/master/docs/',
+  editUrl: 'https://github.com/integration-system/dep/edit/master/docs/',
   projectName: 'dep',
   headerLinks: [
     {doc: 'introduction', label: 'Documentation'},
@@ -40,7 +40,7 @@ const siteConfig = {
   },
   scripts: ['https://buttons.github.io/buttons.js'],
   // You may provide arbitrary config keys to be used as needed by your template.
-  repoUrl: 'https://github.com/golang/dep',
+  repoUrl: 'https://github.com/integration-system/dep',
 };
 
 module.exports = siteConfig;

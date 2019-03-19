@@ -12,10 +12,10 @@ import (
 	"path"
 	"path/filepath"
 
-	"github.com/golang/dep"
-	"github.com/golang/dep/gps"
-	"github.com/golang/dep/internal/fs"
-	"github.com/golang/dep/internal/importers/base"
+	"github.com/integration-system/dep"
+	"github.com/integration-system/dep/gps"
+	"github.com/integration-system/dep/internal/fs"
+	"github.com/integration-system/dep/internal/importers/base"
 	"github.com/pkg/errors"
 	"gopkg.in/yaml.v2"
 )
@@ -161,10 +161,10 @@ func (g *Importer) convert(pr gps.ProjectRoot) (*dep.Manifest, *dep.Lock) {
 		// Warn
 		if g.Verbose {
 			if pkg.OS != "" {
-				g.Logger.Printf("  The %s package specified an os, but that isn't supported by dep yet, and will be ignored. See https://github.com/golang/dep/issues/291.\n", pkg.Name)
+				g.Logger.Printf("  The %s package specified an os, but that isn't supported by dep yet, and will be ignored. See https://github.com/integration-system/dep/issues/291.\n", pkg.Name)
 			}
 			if pkg.Arch != "" {
-				g.Logger.Printf("  The %s package specified an arch, but that isn't supported by dep yet, and will be ignored. See https://github.com/golang/dep/issues/291.\n", pkg.Name)
+				g.Logger.Printf("  The %s package specified an arch, but that isn't supported by dep yet, and will be ignored. See https://github.com/integration-system/dep/issues/291.\n", pkg.Name)
 			}
 		}
 

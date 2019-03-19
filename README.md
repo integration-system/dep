@@ -2,7 +2,7 @@
 <p align="center">
   <a href="https://travis-ci.org/golang/dep"><img src="https://travis-ci.org/golang/dep.svg?branch=master" alt="Build Status"></img></a>
   <a href="https://ci.appveyor.com/project/golang/dep"><img src="https://ci.appveyor.com/api/projects/status/github/golang/dep?svg=true&branch=master&passingText=Windows%20-%20OK&failingText=Windows%20-%20failed&pendingText=Windows%20-%20pending" alt="Windows Build Status"></a>
-  <a href="https://goreportcard.com/report/github.com/golang/dep"><img src="https://goreportcard.com/badge/github.com/golang/dep" /></a>
+  <a href="https://goreportcard.com/report/github.com/integration-system/dep"><img src="https://goreportcard.com/badge/github.com/integration-system/dep" /></a>
 </p>
 
 ## Dep
@@ -19,7 +19,7 @@ For guides and reference materials about `dep`, see [the documentation](https://
 
 ## Installation
 
-It is strongly recommended that you use a released version. Release binaries are available on the [releases](https://github.com/golang/dep/releases) page.
+It is strongly recommended that you use a released version. Release binaries are available on the [releases](https://github.com/integration-system/dep/releases) page.
 
 On MacOS you can install or upgrade to the latest released version with Homebrew:
 
@@ -48,7 +48,7 @@ to the release builds.
 If you're interested in hacking on `dep`, you can install via `go get`:
 
 ```sh
-go get -u github.com/golang/dep/cmd/dep
+go get -u github.com/integration-system/dep/cmd/dep
 ```
 
 ## Feedback

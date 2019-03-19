@@ -13,8 +13,8 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/golang/dep/gps"
-	"github.com/golang/dep/gps/pkgtree"
+	"github.com/integration-system/dep/gps"
+	"github.com/integration-system/dep/gps/pkgtree"
 	"github.com/pelletier/go-toml"
 	"github.com/pkg/errors"
 )
@@ -311,13 +311,17 @@ func ValidateProjectRoots(c *Ctx, m *Manifest, sm gps.SourceManager) error {
 		}
 	}
 
-	for pr := range m.Constraints {
-		wg.Add(1)
-		go validate(pr)
+	for pr, c := range m.Constraints {
+		if c.Source == "" {
+			wg.Add(1)
+			go validate(pr)
+		}
 	}
-	for pr := range m.Ovr {
-		wg.Add(1)
-		go validate(pr)
+	for pr, o := range m.Ovr {
+		if o.Source == "" {
+			wg.Add(1)
+			go validate(pr)
+		}
 	}
 	for pr := range m.PruneOptions.PerProjectOptions {
 		wg.Add(1)
@@ -468,7 +472,7 @@ func fromRawPruneOptions(prunemap map[string]interface{}) gps.CascadingPruneOpti
 // toRawPruneOptions converts a gps.RootPruneOption's PruneOptions to rawPruneOptions
 //
 // Will panic if gps.RootPruneOption includes ProjectPruneOptions
-// See https://github.com/golang/dep/pull/1460#discussion_r158128740 for more information
+// See https://github.com/integration-system/dep/pull/1460#discussion_r158128740 for more information
 func toRawPruneOptions(co gps.CascadingPruneOptions) rawPruneOptions {
 	if len(co.PerProjectOptions) != 0 {
 		panic("toRawPruneOptions cannot convert ProjectOptions to rawPruneOptions")

@@ -8,8 +8,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/golang/dep/gps"
-	"github.com/golang/dep/internal/fs"
+	"github.com/integration-system/dep/gps"
+	"github.com/integration-system/dep/internal/fs"
 )
 
 // Analyzer implements gps.ProjectAnalyzer.

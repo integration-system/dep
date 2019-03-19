@@ -15,9 +15,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/golang/dep"
-	"github.com/golang/dep/internal/test"
-	"github.com/golang/dep/internal/test/integration"
+	"github.com/integration-system/dep"
+	"github.com/integration-system/dep/internal/test"
+	"github.com/integration-system/dep/internal/test/integration"
 )
 
 func TestIntegration(t *testing.T) {

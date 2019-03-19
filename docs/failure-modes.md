@@ -54,7 +54,7 @@ The exact error text will vary depending on which of the operations is running, 
 
 Almost any case where a dep command, run with `-v`, hangs for more than ten minutes will ultimately be a bug. However, the most common explanation for an apparent dep hangs is actually normal behavior: because dep's operation requires that it keep its own copies of upstream sources hidden away in the [local cache](glossary.md#local-cache), the first run of dep against a project, especially large projects, can take a long time while it populates the cache.
 
-The only known case where dep may hang indefinitely is if one of the underlying VCS binaries it calls is prompting for some kind of input. Typically this means credentials (though not always - make sure to accept remote hosts' SSH keys into your known hosts!), and dep's normal assumption is that necessary credentials have been provided via environmental mechanisms - [configuration files or daemons](FAQ.md#how-do-i-get-dep-to-authenticate-to-a-git-repo), SSH agents, etc. This assumption is necessary for dep's concurrent network activity to work. If your use case absolutely cannot support the use of any such environmental caching mechanism, [please weigh in on this issue](https://github.com/golang/dep/issues/1476).
+The only known case where dep may hang indefinitely is if one of the underlying VCS binaries it calls is prompting for some kind of input. Typically this means credentials (though not always - make sure to accept remote hosts' SSH keys into your known hosts!), and dep's normal assumption is that necessary credentials have been provided via environmental mechanisms - [configuration files or daemons](FAQ.md#how-do-i-get-dep-to-authenticate-to-a-git-repo), SSH agents, etc. This assumption is necessary for dep's concurrent network activity to work. If your use case absolutely cannot support the use of any such environmental caching mechanism, [please weigh in on this issue](https://github.com/integration-system/dep/issues/1476).
 
 Unfortunately, until dep [improves the observability of its ongoing I/O operations](), it cannot accurately report to the user which operations are actually underway at any given moment. This can make it difficult to differentiate from other hangs - credentials prompts, long network timeouts induced by firewalls, sluggish TCP when faced with packet loss, etc.
 
@@ -117,7 +117,7 @@ When a deduction failure occurs on a given import path, the proximal cause will 
   * The import path cannot be statically deduced by the running version of dep, but a newer version of dep has added rules that can statically deduce it.
   * The import path was once statically deducible, but the running version of dep has discontinued support for it.
 
-In all of these cases, your last recourse will be to add a [`source`](Gopkg.toml.md#source) directive to fix the problem. However, these directives are brittle, and should only be used when other options have been exhausted; also, until [this problem is solved](https://github.com/golang/dep/issues/860), even `source` may not be able to help.
+In all of these cases, your last recourse will be to add a [`source`](Gopkg.toml.md#source) directive to fix the problem. However, these directives are brittle, and should only be used when other options have been exhausted; also, until [this problem is solved](https://github.com/integration-system/dep/issues/860), even `source` may not be able to help.
 
 #### Undeducible paths
 
@@ -129,7 +129,7 @@ Validation of the inputs from the current project are made fast and up front in 
 
 That undeducibility is an immediate and hard blocker, however, has led to this being a sticking point for migration to dep. In particular, there are two issues:
 
-* Several other Go dependency management tools do allow specifying arbitrary VCS/source URLs, and [but support for that via `source` in dep is still pending](https://github.com/golang/dep/issues/860).
+* Several other Go dependency management tools do allow specifying arbitrary VCS/source URLs, and [but support for that via `source` in dep is still pending](https://github.com/integration-system/dep/issues/860).
 * GitHub Enterprise only implements `go-get` HTTP metadata correctly for the root package of a repository. In practice, this makes all import paths pointing to GHE undeducible, and `source` can't help either without the aforementioned improvement.
 
 If the problem import path is in your current project, but the problem isn't an obvious typo, then you're likely experiencing a dynamic failure, or may need to check the [deduction reference](deduction.md) to understand what what a deducible import path looks like.
@@ -176,7 +176,7 @@ init failed: unable to solve the dependency graph: Solving failure: No versions 
 	master: (another error)
 ```
 
-_Note: all three of the other hard failure types can sometimes be reported as the errors for individual versions in a list like this. This primarily happens because dep is in need of a [thorough refactor of its error handling](https://github.com/golang/dep/issues/288)._
+_Note: all three of the other hard failure types can sometimes be reported as the errors for individual versions in a list like this. This primarily happens because dep is in need of a [thorough refactor of its error handling](https://github.com/integration-system/dep/issues/288)._
 
 It means that the solver was unable to find a combination of versions for all dependencies that satisfy all the rules enforced by the solver. It is crucial to note that, just because dep provides a big list of reasons why each version failed _doesn't mean_ you have to address each one! That's just dep telling you why it ultimately couldn't use each of those versions in a solution.
 

@@ -9,7 +9,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/golang/dep/gps"
+	"github.com/integration-system/dep/gps"
 )
 
 // DeltaDimension defines a bitset enumerating all of the different dimensions

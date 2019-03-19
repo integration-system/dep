@@ -11,7 +11,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/golang/dep/internal/test"
+	"github.com/integration-system/dep/internal/test"
 )
 
 // This file contains utilities for running tests around file system state.

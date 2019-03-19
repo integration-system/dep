@@ -13,7 +13,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/golang/dep/internal/test"
+	"github.com/integration-system/dep/internal/test"
 )
 
 // overrideMkBridge overrides the base bridge with the depspecBridge that skips

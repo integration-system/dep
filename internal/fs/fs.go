@@ -459,7 +459,7 @@ func copyFile(src, dst string) (err error) {
 
 	// Temporary fix for Go < 1.9
 	//
-	// See: https://github.com/golang/dep/issues/774
+	// See: https://github.com/integration-system/dep/issues/774
 	// and https://github.com/golang/go/issues/20829
 	if runtime.GOOS == "windows" {
 		dst = fixLongPath(dst)

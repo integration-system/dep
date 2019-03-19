@@ -71,7 +71,7 @@ class HomeSplash extends React.Component {
           <PromoSection>
             <Button href={docUrl('introduction.html', language)}>Docs</Button>
             <Button href={siteConfig.baseUrl + 'blog'}>Blog</Button>
-            <Button href='https://github.com/golang/dep'>Code</Button>
+            <Button href='https://github.com/integration-system/dep'>Code</Button>
           </PromoSection>
         </div>
       </SplashContainer>

@@ -11,7 +11,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/golang/dep/gps/pkgtree"
+	"github.com/integration-system/dep/gps/pkgtree"
 )
 
 // sourceCache is an interface for creating singleSourceCaches, and safely

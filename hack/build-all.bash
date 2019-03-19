@@ -44,7 +44,7 @@ for OS in ${DEP_BUILD_PLATFORMS[@]}; do
     fi
 
     # Enable CGO if building for OS X on OS X; see
-    # https://github.com/golang/dep/issues/1838 for details.
+    # https://github.com/integration-system/dep/issues/1838 for details.
     if [[ "${OS}" == "darwin" && "${BUILD_PLATFORM}" == "darwin" ]]; then
       CGO_ENABLED=1
     else

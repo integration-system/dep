@@ -6,7 +6,7 @@ notifications:
 jobs:
   include:
     - stage: test
-      go_import_path: github.com/golang/dep
+      go_import_path: github.com/integration-system/dep
       install:
         - ssh-keyscan -t $TRAVIS_SSH_KEY_TYPES -H bitbucket.org >> ~/.ssh/known_hosts
         - make get-deps
@@ -26,7 +26,7 @@ jobs:
     - &simple-test
       go: 1.11.x
       stage: test
-      go_import_path: github.com/golang/dep
+      go_import_path: github.com/integration-system/dep
       install:
         - ssh-keyscan -t $TRAVIS_SSH_KEY_TYPES -H bitbucket.org >> ~/.ssh/known_hosts
       env:
@@ -69,10 +69,10 @@ jobs:
         - make test
     - go: 1.12.x
       # Run on OS X so that we get a CGO-enabled binary for this OS; see
-      # https://github.com/golang/dep/issues/1838 for more details.
+      # https://github.com/integration-system/dep/issues/1838 for more details.
       os: osx
       stage: deploy
-      go_import_path: github.com/golang/dep
+      go_import_path: github.com/integration-system/dep
       install:
         - ssh-keyscan -t $TRAVIS_SSH_KEY_TYPES -H bitbucket.org >> ~/.ssh/known_hosts
       script:

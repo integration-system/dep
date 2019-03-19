@@ -9,7 +9,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/golang/dep/gps"
+	"github.com/integration-system/dep/gps"
 )
 
 // StringDiff represents a modified string value.

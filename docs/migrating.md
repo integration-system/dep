@@ -28,7 +28,7 @@ The behavior of `dep init` varies depending on what's in your existing codebase,
 
 ### The Inference Phase
 
-The inference phase is where `dep init`'s behavior varies. By default, `dep init` will look in your codebase for metadata files from [other Go package management tools that it understands](https://github.com/golang/dep/tree/master/internal/importers), and attempt to automatically migrate the data in these files into concepts that make sense in a dep. Depending on the tool and the particular values dep finds, metadata from the tool may be treated as either:
+The inference phase is where `dep init`'s behavior varies. By default, `dep init` will look in your codebase for metadata files from [other Go package management tools that it understands](https://github.com/integration-system/dep/tree/master/internal/importers), and attempt to automatically migrate the data in these files into concepts that make sense in a dep. Depending on the tool and the particular values dep finds, metadata from the tool may be treated as either:
 
 * A hint: information that dep will try to honor in the solving phase, but will discard if it cannot find a solution that respects the hint.
 * A rule: information that must be obeyed in the solving phase, and will ultimately appear in `Gopkg.toml` as a `[[constraint]]`. If the solving phase cannot find a solution that satisfies the rules, it will fail with an informative message.
@@ -47,7 +47,7 @@ Once dep has compiled its set of inferences, it proceeds to solving.
 
 Once the inference phase is completed, the set of rules and hints dep has assembled will be passed to its [solver](the-solver.md) to work out a transitively complete depgraph, which will ultimately be recorded as the `Gopkg.lock`. This is the same solving process used by `dep ensure`, and completing it successfully means that dep has found a combination of dependency versions that respects all inferred rules, and as many inferred hints as possible. If solving succeeds, then the hard work is done; most of what remains is writing out `Gopkg.toml`, `Gopkg.lock`, and `vendor/`.
 
-The solver returns a solution, which itself is just [a representation](https://godoc.org/github.com/golang/dep/gps#Solution) of [the data stored in a `Gopkg.lock`](https://godoc.org/github.com/golang/dep#Lock): a transitively-complete, reproducible snapshot of the entire dependency graph. Writing out the `Gopkg.lock` from a solution is little more than a copy-and-encode operation, and writing `vendor/` is a matter of placing each project listed in the solution into its appropriate place, at the designated revision. This is exactly the same as `dep ensure`'s behavior.
+The solver returns a solution, which itself is just [a representation](https://godoc.org/github.com/integration-system/dep/gps#Solution) of [the data stored in a `Gopkg.lock`](https://godoc.org/github.com/integration-system/dep#Lock): a transitively-complete, reproducible snapshot of the entire dependency graph. Writing out the `Gopkg.lock` from a solution is little more than a copy-and-encode operation, and writing `vendor/` is a matter of placing each project listed in the solution into its appropriate place, at the designated revision. This is exactly the same as `dep ensure`'s behavior.
 
 `Gopkg.toml` is a little different. There's no guarantee that rules were inferred for all (or even any) of your project's dependencies, but we still want to populate `Gopkg.toml` with sane values. So, for any dependency for which a rule was not inferred, dep inspects the solution to see what version was ultimately selected, and creates a constraint based on that:
 
@@ -80,7 +80,7 @@ All of the hard failure modes are covered extensively in the reference on [failu
 
 Because the solver, and all its possible failures, are the same for `dep init` as for `dep ensure`, there's a separate section for understanding and dealing with them: [dealing with solving failures](failure-modes.md#solving-failures). It can be trickier with `dep init`, however, as many remediations require tweaking `Gopkg.toml`.
 
-Unfortunately, `dep init` does not write out a partial `Gopkg.toml` when it fails. This is a known, critical problem, and [we have an open issue (help wanted!)](https://github.com/golang/dep/issues/909).
+Unfortunately, `dep init` does not write out a partial `Gopkg.toml` when it fails. This is a known, critical problem, and [we have an open issue (help wanted!)](https://github.com/integration-system/dep/issues/909).
 
 In the meantime, if the particular errors you are encountering do entail `Gopkg.toml` tweaks, you unfortunately may have to do without the automation of `dep init`: create an empty [`Gopkg.toml`](Gopkg.toml.md), and populate it with rules by hand. Before resorting to that, make sure you've run `dep init` with various combinations of the inferencing flags (`-skip-tools` and `-gopath`) to see if they can at least give you something to start from.
 

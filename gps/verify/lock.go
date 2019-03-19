@@ -5,7 +5,7 @@
 package verify
 
 import (
-	"github.com/golang/dep/gps"
+	"github.com/integration-system/dep/gps"
 )
 
 // VerifiableProject composes a LockedProject to indicate what the hash digest

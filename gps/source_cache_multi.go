@@ -5,7 +5,7 @@
 package gps
 
 import (
-	"github.com/golang/dep/gps/pkgtree"
+	"github.com/integration-system/dep/gps/pkgtree"
 )
 
 // multiCache creates singleSourceMultiCaches, and coordinates their async updates.

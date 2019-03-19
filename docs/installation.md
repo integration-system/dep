@@ -6,7 +6,7 @@ It is strongly recommended that you use a released version of dep. While tip is 
 
 ## Binary Installation
 
-Pre-compiled binaries are available on the [releases](https://github.com/golang/dep/releases) page. You can use the `install.sh` script to automatically install one for your local platform:
+Pre-compiled binaries are available on the [releases](https://github.com/integration-system/dep/releases) page. You can use the `install.sh` script to automatically install one for your local platform:
 
 ```sh
 $ curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
@@ -47,8 +47,8 @@ break tip, but we also don't guarantee its stability. At the same time, we love
 our users who are willing to be experimental and provide us with fast feedback!
 
 ```sh
-go get -d -u github.com/golang/dep
-cd $(go env GOPATH)/src/github.com/golang/dep
+go get -d -u github.com/integration-system/dep
+cd $(go env GOPATH)/src/github.com/integration-system/dep
 DEP_LATEST=$(git describe --abbrev=0 --tags)
 git checkout $DEP_LATEST
 go install -ldflags="-X main.version=$DEP_LATEST" ./cmd/dep
@@ -60,7 +60,7 @@ git checkout master
 If you want to hack on dep, you can install via `go get`:
 
 ```sh
-go get -u github.com/golang/dep/cmd/dep
+go get -u github.com/integration-system/dep/cmd/dep
 ```
 
 Note that dep requires a functioning Go workspace and GOPATH. If you're unfamiliar with Go workspaces and GOPATH, have a look at [the language documentation](https://golang.org/doc/code.html#Organization) and get your local workspace set up. Dep's model could lead to being able to work without GOPATH, but we're not there yet.

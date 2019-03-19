@@ -92,7 +92,7 @@ A sorted list of all the import inputs that were present at the time the `Gopkg.
 
 The analyzer is an internal dep component responsible for interpreting the contents of `Gopkg.toml` files, as well as metadata files from any tools dep knows about: `glide.yaml`, `vendor.json`, etc.
 
-The analyzer is named because the dep needs to identify itself to its engine, gps (`github.com/golang/dep/gps`); gps knows nothing about dep. The analyzer version is bumped when something in the analyzer's logic begins treating data that it already accepted in a significantly different way, or stops accepting a particular class of data. It is _not_ changed when support for entirely new types of data are added.
+The analyzer is named because the dep needs to identify itself to its engine, gps (`github.com/integration-system/dep/gps`); gps knows nothing about dep. The analyzer version is bumped when something in the analyzer's logic begins treating data that it already accepted in a significantly different way, or stops accepting a particular class of data. It is _not_ changed when support for entirely new types of data are added.
 
 For example, if dep's analyzer stopped supporting automated conversions from glide, then that would not require bumping the analyzer version, as doing so makes _more_ solutions possible. Adding support for converting from a new tool, or changing the interpretation of `version` fields in `Gopkg.toml` so that it was only allowed to specify minimum versions, would entail a version bump.
 

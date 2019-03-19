@@ -13,7 +13,7 @@
 # EXIT 1 - The check has failed
 
 PKGS=$(go list ./... | grep -v /vendor/)
-REPO_TLD="github.com/golang/dep"
+REPO_TLD="github.com/integration-system/dep"
 IGNORE_PKGS=". ./gps"
 
 for PKG in $PKGS; do

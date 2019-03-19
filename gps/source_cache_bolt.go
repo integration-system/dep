@@ -14,8 +14,8 @@ import (
 	"time"
 
 	"github.com/boltdb/bolt"
-	"github.com/golang/dep/gps/internal/pb"
-	"github.com/golang/dep/gps/pkgtree"
+	"github.com/integration-system/dep/gps/internal/pb"
+	"github.com/integration-system/dep/gps/pkgtree"
 	"github.com/golang/protobuf/proto"
 	"github.com/jmank88/nuts"
 	"github.com/pkg/errors"

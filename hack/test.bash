@@ -13,7 +13,7 @@ set -e
 IMPORT_DURING_SOLVE=${IMPORT_DURING_SOLVE:-false}
 
 go test -timeout=300s -race \
-    -ldflags '-X github.com/golang/dep/cmd/dep.flagImportDuringSolve=${IMPORT_DURING_SOLVE}' \
+    -ldflags '-X github.com/integration-system/dep/cmd/dep.flagImportDuringSolve=${IMPORT_DURING_SOLVE}' \
     ./...
 
 if ! ./dep status -out .dep.status.file.output; then exit 1; fi

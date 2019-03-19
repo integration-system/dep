@@ -1,5 +1,5 @@
 [[projects]]
-  name = "github.com/golang/dep"
+  name = "github.com/integration-system/dep"
   branch = "master"
   revision = "d05d5aca9f895d19e9265839bffeadd74a2d2ecb"
   packages = ["."]

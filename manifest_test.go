@@ -14,8 +14,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/golang/dep/gps"
-	"github.com/golang/dep/internal/test"
+	"github.com/integration-system/dep/gps"
+	"github.com/integration-system/dep/internal/test"
 )
 
 func TestReadManifest(t *testing.T) {
@@ -32,7 +32,7 @@ func TestReadManifest(t *testing.T) {
 	c, _ := gps.NewSemverConstraint("^0.12.0")
 	want := Manifest{
 		Constraints: map[gps.ProjectRoot]gps.ProjectProperties{
-			gps.ProjectRoot("github.com/golang/dep"): {
+			gps.ProjectRoot("github.com/integration-system/dep"): {
 				Constraint: c,
 			},
 			gps.ProjectRoot("github.com/babble/brook"): {
@@ -40,8 +40,8 @@ func TestReadManifest(t *testing.T) {
 			},
 		},
 		Ovr: map[gps.ProjectRoot]gps.ProjectProperties{
-			gps.ProjectRoot("github.com/golang/dep"): {
-				Source:     "https://github.com/golang/dep",
+			gps.ProjectRoot("github.com/integration-system/dep"): {
+				Source:     "https://github.com/integration-system/dep",
 				Constraint: gps.NewBranch("master"),
 			},
 		},
@@ -75,14 +75,14 @@ func TestWriteManifest(t *testing.T) {
 	want := h.GetTestFileString(golden)
 	c, _ := gps.NewSemverConstraint("^0.12.0")
 	m := NewManifest()
-	m.Constraints[gps.ProjectRoot("github.com/golang/dep")] = gps.ProjectProperties{
+	m.Constraints[gps.ProjectRoot("github.com/integration-system/dep")] = gps.ProjectProperties{
 		Constraint: c,
 	}
 	m.Constraints[gps.ProjectRoot("github.com/babble/brook")] = gps.ProjectProperties{
 		Constraint: gps.Revision("d05d5aca9f895d19e9265839bffeadd74a2d2ecb"),
 	}
-	m.Ovr[gps.ProjectRoot("github.com/golang/dep")] = gps.ProjectProperties{
-		Source:     "https://github.com/golang/dep",
+	m.Ovr[gps.ProjectRoot("github.com/integration-system/dep")] = gps.ProjectProperties{
+		Source:     "https://github.com/integration-system/dep",
 		Constraint: gps.NewBranch("master"),
 	}
 	m.Ignored = []string{"github.com/foo/bar"}
@@ -419,7 +419,7 @@ func TestValidateManifest(t *testing.T) {
 			tomlString: `
 			[prune]
 			  go-tests = true
-			  name = "github.com/golang/dep"
+			  name = "github.com/integration-system/dep"
 			`,
 			wantWarn: []error{
 				errRootPruneContainsName,
@@ -476,7 +476,7 @@ func TestCheckRedundantPruneOptions(t *testing.T) {
 			pruneOptions: gps.CascadingPruneOptions{
 				DefaultOptions: 15,
 				PerProjectOptions: map[gps.ProjectRoot]gps.PruneOptionSet{
-					"github.com/golang/dep": {
+					"github.com/integration-system/dep": {
 						NestedVendor:   pvtrue,
 						UnusedPackages: pvtrue,
 						NonGoFiles:     pvtrue,
@@ -485,9 +485,9 @@ func TestCheckRedundantPruneOptions(t *testing.T) {
 				},
 			},
 			wantWarn: []error{
-				fmt.Errorf("redundant prune option %q set for %q", "unused-packages", "github.com/golang/dep"),
-				fmt.Errorf("redundant prune option %q set for %q", "non-go", "github.com/golang/dep"),
-				fmt.Errorf("redundant prune option %q set for %q", "go-tests", "github.com/golang/dep"),
+				fmt.Errorf("redundant prune option %q set for %q", "unused-packages", "github.com/integration-system/dep"),
+				fmt.Errorf("redundant prune option %q set for %q", "non-go", "github.com/integration-system/dep"),
+				fmt.Errorf("redundant prune option %q set for %q", "go-tests", "github.com/integration-system/dep"),
 			},
 		},
 		{
@@ -495,7 +495,7 @@ func TestCheckRedundantPruneOptions(t *testing.T) {
 			pruneOptions: gps.CascadingPruneOptions{
 				DefaultOptions: 1,
 				PerProjectOptions: map[gps.ProjectRoot]gps.PruneOptionSet{
-					"github.com/golang/dep": {
+					"github.com/integration-system/dep": {
 						NestedVendor:   pvtrue,
 						UnusedPackages: pvfalse,
 						NonGoFiles:     pvfalse,
@@ -504,9 +504,9 @@ func TestCheckRedundantPruneOptions(t *testing.T) {
 				},
 			},
 			wantWarn: []error{
-				fmt.Errorf("redundant prune option %q set for %q", "unused-packages", "github.com/golang/dep"),
-				fmt.Errorf("redundant prune option %q set for %q", "non-go", "github.com/golang/dep"),
-				fmt.Errorf("redundant prune option %q set for %q", "go-tests", "github.com/golang/dep"),
+				fmt.Errorf("redundant prune option %q set for %q", "unused-packages", "github.com/integration-system/dep"),
+				fmt.Errorf("redundant prune option %q set for %q", "non-go", "github.com/integration-system/dep"),
+				fmt.Errorf("redundant prune option %q set for %q", "go-tests", "github.com/integration-system/dep"),
 			},
 		},
 		{
@@ -514,7 +514,7 @@ func TestCheckRedundantPruneOptions(t *testing.T) {
 			pruneOptions: gps.CascadingPruneOptions{
 				DefaultOptions: 7,
 				PerProjectOptions: map[gps.ProjectRoot]gps.PruneOptionSet{
-					"github.com/golang/dep": {
+					"github.com/integration-system/dep": {
 						NestedVendor: pvtrue,
 						NonGoFiles:   pvtrue,
 						GoTests:      pvtrue,
@@ -527,7 +527,7 @@ func TestCheckRedundantPruneOptions(t *testing.T) {
 				},
 			},
 			wantWarn: []error{
-				fmt.Errorf("redundant prune option %q set for %q", "non-go", "github.com/golang/dep"),
+				fmt.Errorf("redundant prune option %q set for %q", "non-go", "github.com/integration-system/dep"),
 				fmt.Errorf("redundant prune option %q set for %q", "go-tests", "github.com/other/project"),
 			},
 		},
@@ -568,7 +568,7 @@ func TestValidateProjectRoots(t *testing.T) {
 			name: "valid project root",
 			manifest: Manifest{
 				Constraints: map[gps.ProjectRoot]gps.ProjectProperties{
-					gps.ProjectRoot("github.com/golang/dep"): {
+					gps.ProjectRoot("github.com/integration-system/dep"): {
 						Constraint: gps.Any(),
 					},
 				},
@@ -580,7 +580,7 @@ func TestValidateProjectRoots(t *testing.T) {
 			name: "invalid project roots in Constraints and Overrides",
 			manifest: Manifest{
 				Constraints: map[gps.ProjectRoot]gps.ProjectProperties{
-					gps.ProjectRoot("github.com/golang/dep/foo"): {
+					gps.ProjectRoot("github.com/integration-system/dep/foo"): {
 						Constraint: gps.Any(),
 					},
 					gps.ProjectRoot("github.com/golang/go/xyz"): {
@@ -601,7 +601,7 @@ func TestValidateProjectRoots(t *testing.T) {
 			},
 			wantError: errInvalidProjectRoot,
 			wantWarn: []string{
-				"the name for \"github.com/golang/dep/foo\" should be changed to \"github.com/golang/dep\"",
+				"the name for \"github.com/integration-system/dep/foo\" should be changed to \"github.com/integration-system/dep\"",
 				"the name for \"github.com/golang/mock/bar\" should be changed to \"github.com/golang/mock\"",
 				"the name for \"github.com/golang/go/xyz\" should be changed to \"github.com/golang/go\"",
 			},
@@ -672,7 +672,7 @@ func TestValidateProjectRoots(t *testing.T) {
 //GoTests:        true,
 //Projects: []map[string]interface{}{
 //{
-//"name": "github.com/golang/dep",
+//"name": "github.com/integration-system/dep",
 //pruneOptionUnusedPackages: false,
 //pruneOptionNonGo:          false,
 //pruneOptionGoTests:        false,
@@ -682,7 +682,7 @@ func TestValidateProjectRoots(t *testing.T) {
 //wantOptions: gps.CascadingPruneOptions{
 //DefaultOptions: 15,
 //PerProjectOptions: map[gps.ProjectRoot]gps.PruneOptionSet{
-//"github.com/golang/dep": gps.PruneOptionSet{
+//"github.com/integration-system/dep": gps.PruneOptionSet{
 //NestedVendor:   pvtrue,
 //UnusedPackages: pvfalse,
 //NonGoFiles:     pvfalse,
@@ -699,7 +699,7 @@ func TestValidateProjectRoots(t *testing.T) {
 //GoTests:        true,
 //Projects: []map[string]interface{}{
 //{
-//"name": "github.com/golang/dep",
+//"name": "github.com/integration-system/dep",
 //pruneOptionUnusedPackages: false,
 //},
 //},
@@ -707,7 +707,7 @@ func TestValidateProjectRoots(t *testing.T) {
 //wantOptions: gps.CascadingPruneOptions{
 //DefaultOptions: 15,
 //PerProjectOptions: map[gps.ProjectRoot]gps.PruneOptionSet{
-//"github.com/golang/dep": gps.PruneOptionSet{
+//"github.com/integration-system/dep": gps.PruneOptionSet{
 //NestedVendor:   pvtrue,
 //UnusedPackages: pvfalse,
 //},
@@ -722,7 +722,7 @@ func TestValidateProjectRoots(t *testing.T) {
 //GoTests:        false,
 //Projects: []map[string]interface{}{
 //{
-//"name": "github.com/golang/dep",
+//"name": "github.com/integration-system/dep",
 //pruneOptionUnusedPackages: true,
 //pruneOptionNonGo:          true,
 //pruneOptionGoTests:        true,
@@ -732,7 +732,7 @@ func TestValidateProjectRoots(t *testing.T) {
 //wantOptions: gps.CascadingPruneOptions{
 //DefaultOptions: 1,
 //PerProjectOptions: map[gps.ProjectRoot]gps.PruneOptionSet{
-//"github.com/golang/dep": gps.PruneOptionSet{
+//"github.com/integration-system/dep": gps.PruneOptionSet{
 //NestedVendor:   pvtrue,
 //UnusedPackages: pvtrue,
 //NonGoFiles:     pvtrue,

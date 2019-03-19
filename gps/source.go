@@ -11,7 +11,7 @@ import (
 	"log"
 	"sync"
 
-	"github.com/golang/dep/gps/pkgtree"
+	"github.com/integration-system/dep/gps/pkgtree"
 	"github.com/pkg/errors"
 )
 

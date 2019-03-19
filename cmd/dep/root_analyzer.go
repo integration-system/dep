@@ -9,10 +9,10 @@ import (
 	"io/ioutil"
 	"log"
 
-	"github.com/golang/dep"
-	"github.com/golang/dep/gps"
-	fb "github.com/golang/dep/internal/feedback"
-	"github.com/golang/dep/internal/importers"
+	"github.com/integration-system/dep"
+	"github.com/integration-system/dep/gps"
+	fb "github.com/integration-system/dep/internal/feedback"
+	"github.com/integration-system/dep/internal/importers"
 	"golang.org/x/sync/errgroup"
 )
 

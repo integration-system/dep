@@ -11,10 +11,10 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/golang/dep/gps"
-	"github.com/golang/dep/gps/pkgtree"
-	"github.com/golang/dep/gps/verify"
-	"github.com/golang/dep/internal/fs"
+	"github.com/integration-system/dep/gps"
+	"github.com/integration-system/dep/gps/pkgtree"
+	"github.com/integration-system/dep/gps/verify"
+	"github.com/integration-system/dep/internal/fs"
 	"github.com/pkg/errors"
 )
 

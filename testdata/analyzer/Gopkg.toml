@@ -1,6 +1,6 @@
 
 [[constraint]]
-  name = "github.com/golang/dep"
+  name = "github.com/integration-system/dep"
   version = ">=0.12.0, <1.0.0"
 
 [[constraint]]

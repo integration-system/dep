@@ -8,7 +8,7 @@ import (
 	"sort"
 
 	"github.com/armon/go-radix"
-	"github.com/golang/dep/gps/pkgtree"
+	"github.com/integration-system/dep/gps/pkgtree"
 )
 
 // rootdata holds static data and constraining rules from the root project for
