@@ -318,7 +318,6 @@ func ValidateProjectRoots(c *Ctx, m *Manifest, sm gps.SourceManager) error {
 		}
 	}
 	for pr, o := range m.Ovr {
-		fmt.Println(pr, o)
 		if o.Source == "" {
 			wg.Add(1)
 			go validate(pr)
